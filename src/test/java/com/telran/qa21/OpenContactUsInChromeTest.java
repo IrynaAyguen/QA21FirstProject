@@ -22,7 +22,7 @@ public class OpenContactUsInChromeTest {
     }
 
     @Test
-    public void searchProductTest(){
+    public void openContactUsInChromeTest(){
         // find element of search field
         // click in the search field
         driver.findElement(By.id("contact-link")).click();
