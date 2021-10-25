@@ -3,6 +3,7 @@ package com.telran.qa21;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -24,7 +25,7 @@ public class SearchProductTests {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test
+   /* @Test
     public void searchProductTest(){
         // find element of search field
         // click in the search field
@@ -36,6 +37,19 @@ public class SearchProductTests {
         String text = driver.findElement(By.className("lighter")).getText();
         Assert.assertEquals(text.toLowerCase(),"\"summer dresses\"");
     }
+    */
+
+    @Test
+    public void searchInContainerMenuTest() {
+        //find element and click on the tab in menu content
+        WebElement ul=driver.findElement(By.xpath("//ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']"));
+        ul.findElement(By.xpath(".//a[@title='Women']")).click();
+
+        WebElement el=driver.findElement(By.xpath("//ul[@class='tree dynamized']"));
+        el.findElement(By.xpath(".//*[contains(text(),'Tops')]")).click();
+
+    }
+
 
     @AfterMethod(enabled = false)
     public void tearDown(){
